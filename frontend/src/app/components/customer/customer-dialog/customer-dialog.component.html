@@ -1,0 +1,43 @@
+<h4 mat-dialog-title>{{ title }}</h4>
+<div
+  mat-dialog-content
+  fxLayoutAlign="stretch"
+  fxLayout="column"
+  *ngIf="action !== 'delete'"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input maxlength="255" matInput [(ngModel)]="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Cin</mat-label>
+    <input maxlength="255" matInput [(ngModel)]="cin" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Gsm</mat-label>
+    <input maxlength="255" matInput [(ngModel)]="gsm" />
+  </mat-form-field>
+</div>
+<div
+  mat-dialog-content
+  fxLayoutAlign="stretch"
+  fxLayout="column"
+  *ngIf="action === 'delete'"
+>
+  <span>Are you sure to delete this customer?</span>
+</div>
+<mat-dialog-actions align="end">
+  <button color="primary" mat-stroked-button (click)="onNoClick()">
+    Cancel
+  </button>
+  <button
+    color="primary"
+    mat-stroked-button
+    (click)="save()"
+    [disabled]="!name || !cin || !gsm"
+  >
+    {{ action !== "delete" ? "Save" : "Delete" }}
+  </button>
+</mat-dialog-actions>

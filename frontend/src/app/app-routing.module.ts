@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { ChipsComponent } from './components/chips/chips.component';
+import { CustomerComponent } from './components/customer/customer.component';
 import { ExpansionComponent } from './components/expansion/expansion.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
       {path:"slide-toggle", component:SlideToggleComponent},
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
+      {path:"customer", component:CustomerComponent},
     ]
   },
 

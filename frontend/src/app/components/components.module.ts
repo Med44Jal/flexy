@@ -19,6 +19,8 @@ import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component'
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerDialogComponent } from './customer/customer-dialog/customer-dialog.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { TooltipsComponent } from './tooltips/tooltips.component'
     SlideToggleComponent,
     ButtonsComponent,
     TooltipsComponent,
+    CustomerComponent,
+    CustomerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -60,6 +64,7 @@ import { TooltipsComponent } from './tooltips/tooltips.component'
     SliderComponent,
     SlideToggleComponent,
     ButtonsComponent,
+    CustomerDialogComponent
   ]
 })
 export class ComponentsModule { }
