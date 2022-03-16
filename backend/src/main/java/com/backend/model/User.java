@@ -1,4 +1,4 @@
-package com.spring.datajpa.model;
+package com.backend.model;
 
 import java.util.HashSet;
 import java.util.Set;

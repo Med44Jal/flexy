@@ -1,8 +1,8 @@
-package com.spring.datajpa.security.jwt;
+package com.backend.security.jwt;
 
 import java.util.Date;
 
-import com.spring.datajpa.security.services.UserDetailsImpl;
+import com.backend.security.services.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

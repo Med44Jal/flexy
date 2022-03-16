@@ -1,4 +1,4 @@
-package com.spring.datajpa.security.jwt;
+package com.backend.security.jwt;
 
 import java.io.IOException;
 

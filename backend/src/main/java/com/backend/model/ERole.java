@@ -1,4 +1,4 @@
-package com.spring.datajpa.model;
+package com.backend.model;
 
 public enum ERole {
 	ROLE_USER,

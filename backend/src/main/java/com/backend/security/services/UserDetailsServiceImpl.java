@@ -1,6 +1,6 @@
-package com.spring.datajpa.security.services;
+package com.backend.security.services;
 
-import com.spring.datajpa.repository.UserRepository;
+import com.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.datajpa.model.User;
+import com.backend.model.User;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

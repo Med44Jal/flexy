@@ -1,4 +1,4 @@
-package com.spring.datajpa.payload.response;
+package com.backend.payload.response;
 
 public class MessageResponse {
 	private String message;

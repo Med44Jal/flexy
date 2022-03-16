@@ -1,4 +1,4 @@
-package com.spring.datajpa.payload.response;
+package com.backend.payload.response;
 
 import java.util.List;
 

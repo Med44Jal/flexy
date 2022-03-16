@@ -1,4 +1,4 @@
-package com.spring.datajpa.payload.request;
+package com.backend.payload.request;
 
 import javax.validation.constraints.NotBlank;
 

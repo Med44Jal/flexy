@@ -1,4 +1,4 @@
-package com.spring.datajpa.controller;
+package com.backend.controller;
 
 import java.util.HashSet;
 import java.util.List;
@@ -9,17 +9,17 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.validation.Valid;
 
-import com.spring.datajpa.security.jwt.JwtUtils;
-import com.spring.datajpa.model.ERole;
-import com.spring.datajpa.model.Role;
-import com.spring.datajpa.model.User;
-import com.spring.datajpa.payload.request.LoginRequest;
-import com.spring.datajpa.payload.request.SignupRequest;
-import com.spring.datajpa.payload.response.JwtResponse;
-import com.spring.datajpa.payload.response.MessageResponse;
-import com.spring.datajpa.repository.RoleRepository;
-import com.spring.datajpa.repository.UserRepository;
-import com.spring.datajpa.security.services.UserDetailsImpl;
+import com.backend.security.jwt.JwtUtils;
+import com.backend.model.ERole;
+import com.backend.model.Role;
+import com.backend.model.User;
+import com.backend.payload.request.LoginRequest;
+import com.backend.payload.request.SignupRequest;
+import com.backend.payload.response.JwtResponse;
+import com.backend.payload.response.MessageResponse;
+import com.backend.repository.RoleRepository;
+import com.backend.repository.UserRepository;
+import com.backend.security.services.UserDetailsImpl;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
