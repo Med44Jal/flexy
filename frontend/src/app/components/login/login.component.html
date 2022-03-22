@@ -1,0 +1,31 @@
+<!-- Form Layout -->
+<div class="login">
+  <div class="card" style="width: 25%">
+    <div class="card-body">
+      <div class="text-center">
+        <img class="rounded" src="./assets/images/favicon.png" />
+      </div>
+      <h3 class="mb-32 text-center">Login</h3>
+      <form>
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Enter your email" />
+        </mat-form-field>
+
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Enter your password" />
+        </mat-form-field>
+
+        <button
+          mat-button
+          class="btn btn-info w-100"
+          (click)="onBack()"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

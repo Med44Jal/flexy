@@ -1,0 +1,55 @@
+mat-stepper {
+  background-color: var(--background) !important;
+}
+
+.container {
+  position: relative;
+  margin-left: 10px;
+  max-width: 400px;
+  background-color: gainsboro;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #03c9d7;
+  float: left;
+}
+
+.btn-2 {
+  position: absolute;
+  top: 15%;
+  left: 85%;
+  color: red;
+  background-color: transparent;
+  transform: translate(-15%, -85%);
+  -ms-transform: translate(-15%, -85%);
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  text-align: center;
+}
+
+img {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.btn-1 {
+  width: 200px;
+  height: 200px;
+}
+
+:host {
+  display: block;
+}
+.uploader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzoneTemplate {
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}

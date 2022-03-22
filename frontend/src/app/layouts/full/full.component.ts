@@ -40,6 +40,11 @@ export class FullComponent {
       menu: "Customers",
     },
     {
+      link: "/vehicule",
+      icon: "disc",
+      menu: "Vehicules",
+    },
+    {
       link: "/button",
       icon: "disc",
       menu: "Buttons",

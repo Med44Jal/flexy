@@ -7,6 +7,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { ExpansionComponent } from './components/expansion/expansion.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
+import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProgressSnipperComponent } from './components/progress-snipper/progress-snipper.component';
 import { ProgressComponent } from './components/progress/progress.component';
@@ -16,6 +17,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TooltipsComponent } from './components/tooltips/tooltips.component';
+import { VehiculeComponent } from './components/vehicule/vehicule.component';
 import { ProductComponent } from './dashboard/dashboard-components/product/product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layouts/full/full.component';
@@ -25,7 +27,7 @@ const routes: Routes = [
     path:"",
     component:FullComponent,
     children: [
-      {path:"", redirectTo:"/home", pathMatch:"full"},
+      {path:"", redirectTo:"/login", pathMatch:"full"},
       {path:"home", component:DashboardComponent},
       {path:"alerts", component:AlertsComponent},
       {path:"forms", component:FormsComponent},
@@ -44,11 +46,13 @@ const routes: Routes = [
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
       {path:"customer", component:CustomerComponent},
+      {path:"vehicule", component:VehiculeComponent}
     ]
   },
 
-  {path:"", redirectTo:"/home", pathMatch:"full"},
-  {path:"**", redirectTo:"/home", pathMatch:"full"},
+  {path:"login", component:LoginComponent},
+  {path:"", redirectTo:"/login", pathMatch:"full"},
+  {path:"**", redirectTo:"/login", pathMatch:"full"},
 ];
 
 @NgModule({

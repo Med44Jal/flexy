@@ -11,7 +11,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ChipsComponent } from './chips/chips.component';
 import { ProgressComponent } from './progress/progress.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
@@ -21,6 +21,9 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component'
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDialogComponent } from './customer/customer-dialog/customer-dialog.component';
+import { LoginComponent } from './login/login.component';
+import { VehiculeComponent } from './vehicule/vehicule.component';
+import { FilePickerModule } from 'ngx-awesome-uploader';
 
 
 @NgModule({
@@ -41,13 +44,17 @@ import { CustomerDialogComponent } from './customer/customer-dialog/customer-dia
     ButtonsComponent,
     TooltipsComponent,
     CustomerComponent,
-    CustomerDialogComponent
+    CustomerDialogComponent,
+    LoginComponent,
+    VehiculeComponent
   ],
   imports: [
     CommonModule,
     FeatherModule.pick(allIcons),
     DemoFlexyModule,
-    FormsModule
+    FormsModule,
+    FilePickerModule,
+    ReactiveFormsModule
   ],
   exports: [
     AlertsComponent,
@@ -64,7 +71,8 @@ import { CustomerDialogComponent } from './customer/customer-dialog/customer-dia
     SliderComponent,
     SlideToggleComponent,
     ButtonsComponent,
-    CustomerDialogComponent
+    CustomerDialogComponent,
+    LoginComponent
   ]
 })
 export class ComponentsModule { }
