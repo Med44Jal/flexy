@@ -24,6 +24,10 @@ import { CustomerDialogComponent } from './customer/customer-dialog/customer-dia
 import { LoginComponent } from './login/login.component';
 import { VehiculeComponent } from './vehicule/vehicule.component';
 import { FilePickerModule } from 'ngx-awesome-uploader';
+import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIconModule } from '@angular/material/icon';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -46,7 +50,8 @@ import { FilePickerModule } from 'ngx-awesome-uploader';
     CustomerComponent,
     CustomerDialogComponent,
     LoginComponent,
-    VehiculeComponent
+    VehiculeComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +59,10 @@ import { FilePickerModule } from 'ngx-awesome-uploader';
     DemoFlexyModule,
     FormsModule,
     FilePickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    MatIconModule,
+    NgxPaginationModule
   ],
   exports: [
     AlertsComponent,

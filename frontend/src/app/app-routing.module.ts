@@ -7,6 +7,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { ExpansionComponent } from './components/expansion/expansion.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProgressSnipperComponent } from './components/progress-snipper/progress-snipper.component';
@@ -28,7 +29,7 @@ const routes: Routes = [
     component:FullComponent,
     children: [
       {path:"", redirectTo:"/login", pathMatch:"full"},
-      {path:"home", component:DashboardComponent},
+      {path:"dashboard", component:DashboardComponent},
       {path:"alerts", component:AlertsComponent},
       {path:"forms", component:FormsComponent},
       {path:"table", component:ProductComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
       {path:"customer", component:CustomerComponent},
-      {path:"vehicule", component:VehiculeComponent}
+      {path:"vehicule", component:VehiculeComponent},
+      {path:"home", component:HomeComponent}
     ]
   },
 
