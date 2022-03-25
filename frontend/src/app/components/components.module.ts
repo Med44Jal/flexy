@@ -28,6 +28,12 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { HeaderComponent } from '../layouts/header/header.component';
+import { CompareComponent } from './compare/compare.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+
 
 
 @NgModule({
@@ -51,7 +57,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CustomerDialogComponent,
     LoginComponent,
     VehiculeComponent,
-    HomeComponent
+    HomeComponent,
+    CompareComponent
   ],
   imports: [
     CommonModule,
@@ -62,7 +69,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     NgbModule,
     MatIconModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AutocompleteLibModule,
+    NgxSliderModule,
+    NgApexchartsModule
   ],
   exports: [
     AlertsComponent,

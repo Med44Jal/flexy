@@ -5,7 +5,7 @@
 
 .car-price {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 20px;
   color: #03c9d7;
 }
 
@@ -21,4 +21,9 @@ ngb-carousel .wrapper > img {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+pagination-controls {
+  display: flex;
+  justify-content: center;
 }

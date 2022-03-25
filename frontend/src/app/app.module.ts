@@ -15,11 +15,14 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ComponentsModule } from './components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './layouts/header/header.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FullComponent
+    FullComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DemoFlexyModule,
     DashboardModule,
     ComponentsModule,
+    AutocompleteLibModule,
     FormsModule,
     HttpClientModule,
     NgbModule

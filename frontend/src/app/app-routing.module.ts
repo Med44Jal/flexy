@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { ChipsComponent } from './components/chips/chips.component';
+import { CompareComponent } from './components/compare/compare.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { ExpansionComponent } from './components/expansion/expansion.component';
 import { FormsComponent } from './components/forms/forms.component';
@@ -22,36 +23,32 @@ import { VehiculeComponent } from './components/vehicule/vehicule.component';
 import { ProductComponent } from './dashboard/dashboard-components/product/product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layouts/full/full.component';
+import { HeaderComponent } from './layouts/header/header.component';
 
 const routes: Routes = [
-  {
-    path:"",
-    component:FullComponent,
-    children: [
-      {path:"", redirectTo:"/login", pathMatch:"full"},
-      {path:"dashboard", component:DashboardComponent},
-      {path:"alerts", component:AlertsComponent},
-      {path:"forms", component:FormsComponent},
-      {path:"table", component:ProductComponent},
-      {path:"grid-list", component:GridListComponent},
-      {path:"menu", component:MenuComponent},
-      {path:"tabs", component:TabsComponent},
-      {path:"expansion", component:ExpansionComponent},
-      {path:"chips", component:ChipsComponent},
-      {path:"progress", component:ProgressComponent},
-      {path:"toolbar", component:ToolbarComponent},
-      {path:"progress-snipper", component:ProgressSnipperComponent},
-      {path:"snackbar", component:SnackbarComponent},
-      {path:"slider", component:SliderComponent},
-      {path:"slide-toggle", component:SlideToggleComponent},
-      {path:"tooltip", component:TooltipsComponent},
-      {path:"button", component:ButtonsComponent},
-      {path:"customer", component:CustomerComponent},
-      {path:"vehicule", component:VehiculeComponent},
-      {path:"home", component:HomeComponent}
-    ]
-  },
-
+ 
+  {path:"", redirectTo:"/login", pathMatch:"full"},
+  {path:"dashboard", component:DashboardComponent},
+  {path:"alerts", component:AlertsComponent},
+  {path:"forms", component:FormsComponent},
+  {path:"table", component:ProductComponent},
+  {path:"grid-list", component:GridListComponent},
+  {path:"menu", component:MenuComponent},
+  {path:"tabs", component:TabsComponent},
+  {path:"expansion", component:ExpansionComponent},
+  {path:"chips", component:ChipsComponent},
+  {path:"progress", component:ProgressComponent},
+  {path:"toolbar", component:ToolbarComponent},
+  {path:"progress-snipper", component:ProgressSnipperComponent},
+  {path:"snackbar", component:SnackbarComponent},
+  {path:"slider", component:SliderComponent},
+  {path:"slide-toggle", component:SlideToggleComponent},
+  {path:"tooltip", component:TooltipsComponent},
+  {path:"button", component:ButtonsComponent},
+  {path:"customer", component:CustomerComponent},
+  {path:"vehicule", component:VehiculeComponent},
+  {path:"home", component:HomeComponent},
+  {path:"compare", component:CompareComponent},
   {path:"login", component:LoginComponent},
   {path:"", redirectTo:"/login", pathMatch:"full"},
   {path:"**", redirectTo:"/login", pathMatch:"full"},

@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <a
+      [routerLink]="['/home']"
+      routerLinkActive="router-link-active"
+      class="navbar-brand d-flex align-items-center"
+    >
+      <img src="assets/images/favicon.png" alt="" />
+      <span class="ms-16 fw-medium fs-26">Flexy</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor03"
+      aria-controls="navbarColor03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isCollapsed = !isCollapsed"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarColor03"
+      [ngbCollapse]="isCollapsed"
+    >
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link"
+            ><button
+              class="btn btn-success"
+              [routerLink]="['/compare']"
+              routerLinkActive="router-link-active"
+              mat-button
+            >
+              <span class="p-4">Compare</span
+              ><mat-icon inline="true">compare_arrows</mat-icon>
+            </button></a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+            ><button
+              class="btn btn-success"
+              [routerLink]="['/vehicule']"
+              routerLinkActive="router-link-active"
+              mat-button
+            >
+              <span class="p-4">Sell now</span
+              ><mat-icon inline="true">sell</mat-icon>
+            </button></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
