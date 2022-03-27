@@ -26,6 +26,15 @@ export class VehiculeComponent implements OnInit {
   states=["Excellent","Très bon","Bon","Correct","Endommagé","Pour Pièces"];
   cars = cars;
   chipControl = new FormControl(new Set());
+
+  year;
+  mile;
+  origin;
+  state;
+  model;
+  gear;
+  fuel;
+  cv;
   
   @ViewChild('UploadFileInput') uploadFileInput: ElementRef;
   myfilename = 'Select File';
@@ -51,6 +60,21 @@ export class VehiculeComponent implements OnInit {
 
   get secondSelectOptions() {
     return (this.cars.find(({brand}) => brand === this.brand))?.models;
+  }
+
+  constructSell(){
+    let vehicule = {
+      "year": this.year,
+      "mile": this.mile,
+      "origin": this.origin,
+      "state": this.state,
+      "model": this.model,
+      "gear": this.gear,
+      "fuel": this.fuel,
+      "cv": this.cv,
+      "options": Array.from(this.chipControl.value)
+    }
+    console.log(vehicule)
   }
 
 }

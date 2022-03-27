@@ -44,6 +44,13 @@ export class CompareComponent implements OnInit {
   public chartOptions: Partial<ChartOptions>;
   cars: any = cars;
   items = [];
+  res = [];
+  quick=[];
+  reference_rate_litre = 8.0;
+  reference_rate_gear = 10;
+  reference_rate_horse = 986;
+  reference_rate_cylindre = 16;
+  cons = [];
 
   private options: string[] = [];
   public control = new FormControl();
@@ -87,15 +94,50 @@ export class CompareComponent implements OnInit {
     this.items.forEach((element,index)=>{
         if(element===item) this.items.splice(index,1);
      });
+    this.res = [];
   }
 
   findRivals(rival){
     this.cars.forEach((c) => {
-      if(c['Represented Test Veh Model'] + " " + c['Test Veh Displacement (L)'] + "L " + c['Rated Horsepower'] + "HP " + c['Model Year'] === rival[0]){
-        console.log(c)
-        return c;
+      let i;
+      let r = c['Represented Test Veh Model'] + " " + c['Test Veh Displacement (L)'] + "L " + c['Rated Horsepower'] + "HP " + c['Model Year'];
+      for(i=0 ;i<2 ; i++)
+      {
+        if(this.res.find(d => d['Represented Test Veh Model'] + " " + d['Test Veh Displacement (L)'] + "L " + d['Rated Horsepower'] + "HP " + d['Model Year'] === r)){
+          console.log('here')
+        }
+        else{
+        if(r === rival[i]){
+         this.res.push(c);
+        }
       }
-    })
+      }
+    });
+    if(this.res[0]['Test Veh Displacement (L)'] >= this.res[1]['Test Veh Displacement (L)']){
+        this.cons.push(true);
+    }
+    else{
+      this.cons.push(false);
+    }
+     if(this.res[0]['Rated Horsepower']>= this.res[1]['Rated Horsepower']){
+      this.cons.push(true);
+    }else{
+      this.cons.push(false);
+    }
+     
+    if(this.res[0]['# of Cylinders and Rotors']>= this.res[1]['# of Cylinders and Rotors']){
+      this.cons.push(true);
+    }else{
+      this.cons.push(false);
+    }
+    
+    if(this.res[0]['# of Gears']>= this.res[1]['# of Gears']){
+      this.cons.push(true);
+    }else{
+      this.cons.push(false);
+    }
+    
+
   }
 
   constructor() {
@@ -103,7 +145,8 @@ export class CompareComponent implements OnInit {
       series: [
         {
           name: "Series 1",
-          data: [20, 100, 40, 30, 50, 80, 33]
+          data: [50,40,80,90, 50, 80]
+          //data: [this.quick[0]['gears'], this.quick[0]['cylinders'], this.quick[0]['horse'], this.quick[0]['litre'], 50, 80]
         }
       ],
       chart: {
@@ -148,12 +191,11 @@ export class CompareComponent implements OnInit {
           "KM",
           "Consommation L/100km",
           "Options",
-          "Puissance",
-          "Prix"
+          "Puissance"
         ]
       },
       yaxis: {
-        tickAmount: 7,
+        tickAmount: 6,
         labels: {
           formatter: function(val, i) {
               return "";

@@ -62,17 +62,20 @@
   </button>
 </div>
 
-<div fxLayout="row" fxLayoutWrap="wrap">
+<div fxLayout="row" fxLayoutWrap="wrap" *ngIf="res.length != 0">
   <!-- Card column -->
   <div fxFlex="100%" fxFlex="100">
     <mat-card>
       <mat-card-content>
         <h4 class="mb-32">Quick Comparison</h4>
         <mat-tab-group>
-          <mat-tab label="Car 1">
+          <mat-tab
+            label="{{ res[0]['Represented Test Veh Make'] }}
+          {{ res[0]['Represented Test Veh Model'] }}"
+          >
             <mat-card-content>
               <div class="row">
-                <div class="col">
+                <!-- <div class="col">
                   <div class="chart">
                     <apx-chart
                       [series]="chartOptions.series"
@@ -89,10 +92,15 @@
                       [title]="chartOptions.title"
                     ></apx-chart>
                   </div>
-                </div>
+                </div> -->
                 <div class="col">
-                  <h3>Why is iPhone 13 better than Apple iPhone 12?</h3>
-                  <h4>
+                  <h3>
+                    Why is {{ res[0]["Represented Test Veh Make"] }}
+                    {{ res[0]["Represented Test Veh Model"] }} better than
+                    {{ res[1]["Represented Test Veh Make"] }}
+                    {{ res[1]["Represented Test Veh Model"] }}?
+                  </h3>
+                  <h4 *ngIf="this.cons[0]">
                     <mat-icon
                       style="
                         position: relative;
@@ -101,7 +109,7 @@
                         color: #00c292;
                       "
                       >check</mat-icon
-                    >15.1% more battery power<mat-icon
+                    >{{ res[0]["Test Veh Displacement (L)"] }} L<mat-icon
                       style="
                         position: relative;
                         top: 5px;
@@ -111,73 +119,221 @@
                       >help</mat-icon
                     >
                   </h4>
-                  <i style="margin-left: 32px"><b>3240mAh</b> vs 2815mAh</i>
-                </div>
-              </div>
-              <div class="row text-center mb-32">
-                <div class="col-6">
-                  <button
-                    class="btn btn-success"
-                    style="margin-left: 8px"
-                    mat-icon-button
-                  >
-                    <mat-icon>phone</mat-icon>
-                  </button>
-                  <button
-                    class="btn btn-success"
-                    style="margin-left: 8px"
-                    mat-icon-button
-                  >
-                    <mat-icon>chair</mat-icon>
-                  </button>
-                  <button
-                    class="btn btn-success"
-                    style="margin-left: 8px"
-                    mat-icon-button
-                  >
-                    <mat-icon>phone</mat-icon>
-                  </button>
-                  <button
-                    class="btn btn-success"
-                    style="margin-left: 8px"
-                    mat-icon-button
-                  >
-                    <mat-icon>phone</mat-icon>
-                  </button>
-                  <button
-                    class="btn btn-success"
-                    style="margin-left: 8px"
-                    mat-icon-button
-                  >
-                    <mat-icon>phone</mat-icon>
-                  </button>
-                  <button
-                    class="btn btn-success"
-                    style="margin-left: 8px"
-                    mat-icon-button
-                  >
-                    <mat-icon>phone</mat-icon>
-                  </button>
-                  <button
-                    class="btn btn-success"
-                    style="margin-left: 8px"
-                    mat-icon-button
-                  >
-                    <mat-icon>phone</mat-icon>
-                  </button>
-                </div>
-              </div>
-              <div class="row text-center">
-                <div class="col-6">
-                  <span style="font-weight: bold; font-size: 28px">84</span
-                  ><br />
-                  <span style="font-size: 28px">Point</span>
+                  <h4 *ngIf="this.cons[1]">
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >{{ res[0]["Rated Horsepower"] }} Horsepower<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                  <h4 *ngIf="this.cons[2]">
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >
+                    {{ res[0]["# of Cylinders and Rotors"] }}
+                    Cylinders/Rotors<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                  <h4 *ngIf="this.cons[3]">
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >{{ res[0]["# of Gears"] }} Gears<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                  <h4>
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >{{ res[0]["Drive System Description"]
+                    }}<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
                 </div>
               </div>
             </mat-card-content>
           </mat-tab>
-          <mat-tab label="Car 2">
-            <mat-card-content> </mat-card-content>
+          <mat-tab
+            label="{{ res[1]['Represented Test Veh Make'] }}
+          {{ res[1]['Represented Test Veh Model'] }}"
+          >
+            <mat-card-content>
+              <div class="row">
+                <!-- <div class="col">
+                <div class="chart">
+                  <apx-chart
+                    [series]="chartOptions.series"
+                    [chart]="chartOptions.chart"
+                    [xaxis]="chartOptions.xaxis"
+                    [stroke]="chartOptions.stroke"
+                    [colors]="chartOptions.colors"
+                    [dataLabels]="chartOptions.dataLabels"
+                    [tooltip]="chartOptions.tooltip"
+                    [plotOptions]="chartOptions.plotOptions"
+                    [markers]="chartOptions.markers"
+                    [yaxis]="chartOptions.yaxis"
+                    [fill]="chartOptions.fill"
+                    [title]="chartOptions.title"
+                  ></apx-chart>
+                </div>
+              </div> -->
+                <div class="col">
+                  <h3>
+                    Why is {{ res[1]["Represented Test Veh Make"] }}
+                    {{ res[1]["Represented Test Veh Model"] }} better than
+                    {{ res[0]["Represented Test Veh Make"] }}
+                    {{ res[0]["Represented Test Veh Model"] }}?
+                  </h3>
+                  <h4 *ngIf="!this.cons[0]">
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >{{ res[1]["Test Veh Displacement (L)"] }} L<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                  <h4 *ngIf="!this.cons[1]">
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >{{ res[1]["Rated Horsepower"] }} Horsepower<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                  <h4 *ngIf="!this.cons[2]">
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >
+                    {{ res[1]["# of Cylinders and Rotors"] }}
+                    Cylinders/Rotors<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                  <h4 *ngIf="!this.cons[3]">
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >{{ res[1]["# of Gears"] }} Gears<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                  <h4>
+                    <mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-right: 10px;
+                        color: #00c292;
+                      "
+                      >check</mat-icon
+                    >{{ res[1]["Drive System Description"]
+                    }}<mat-icon
+                      style="
+                        position: relative;
+                        top: 5px;
+                        margin-left: 5px;
+                        color: rgb(192, 189, 189);
+                      "
+                      >help</mat-icon
+                    >
+                  </h4>
+                </div>
+              </div>
+            </mat-card-content>
           </mat-tab>
         </mat-tab-group>
       </mat-card-content>
@@ -185,12 +341,739 @@
   </div>
 </div>
 
-<div fxLayout="row" fxLayoutWrap="wrap">
+<div fxLayout="row" fxLayoutWrap="wrap" *ngIf="res.length != 0">
   <!-- Card column -->
   <div fxFlex="100%" fxFlex="100">
     <mat-card>
       <mat-card-content>
         <h4 class="mb-32">Full Comparison</h4>
+        <section>
+          <div class="container">
+            <div class="table-responsive-lg">
+              <table class="table table-striped pricing-table">
+                <thead>
+                  <tr>
+                    <th class="border-0 pb-5 h3 plan-content-title">
+                      Features
+                    </th>
+                    <th class="text-center border-0 pb-5">
+                      <button
+                        class="btn btn-block btn-outline-primary btn-rounded"
+                        disabled
+                      >
+                        {{
+                          res[0]["Represented Test Veh Model"] +
+                            " " +
+                            res[0]["Test Veh Displacement (L)"] +
+                            "L " +
+                            res[0]["Rated Horsepower"] +
+                            "HP " +
+                            res[0]["Model Year"]
+                        }}
+                      </button>
+                    </th>
+                    <th class="text-center border-0 pb-5">
+                      <button
+                        class="btn btn-block btn-outline-primary btn-rounded"
+                        disabled
+                      >
+                        {{
+                          res[1]["Represented Test Veh Model"] +
+                            " " +
+                            res[1]["Test Veh Displacement (L)"] +
+                            "L " +
+                            res[1]["Rated Horsepower"] +
+                            "HP " +
+                            res[1]["Model Year"]
+                        }}
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row" class="border-0">
+                      Represented Test Veh Make
+                    </td>
+                    <td class="border-0 text-center">
+                      <span class="icon icon-rounded icon-success"
+                        ><i class="mdi mdi-check-bold">
+                          {{ res[0]["Represented Test Veh Make"] }}
+                        </i></span
+                      >
+                    </td>
+                    <td class="border-0 text-center">
+                      <span class="icon icon-rounded icon-success"
+                        ><i class="mdi mdi-check-bold">{{
+                          res[1]["Represented Test Veh Make"]
+                        }}</i></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Represented Test Veh Model</td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-success"
+                        ><i class="mdi mdi-check-bold">
+                          {{ res[0]["Represented Test Veh Model"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-success"
+                        ><i class="mdi mdi-check-bold">
+                          {{ res[1]["Represented Test Veh Model"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Model Year</td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-success"
+                        ><i class="mdi mdi-check-bold">
+                          {{ res[0]["Model Year"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-success"
+                        ><i class="mdi mdi-check-bold">
+                          {{ res[1]["Model Year"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Test Veh Displacement (L)</td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Test Veh Displacement (L)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-success"
+                        ><i class="mdi mdi-check-bold">
+                          {{ res[1]["Test Veh Displacement (L)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Rated Horsepower</td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Rated Horsepower"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Rated Horsepower"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      # of Cylinders and Rotors
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["# of Cylinders and Rotors"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["# of Cylinders and Rotors"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">Engine Code</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Engine Code"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Engine Code"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Tested Transmission Type
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Tested Transmission Type"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Tested Transmission Type"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom"># of Gears</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["# of Gears"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["# of Gears"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Transmission Lockup
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Transmission Lockup?"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Transmission Lockup?"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">Drive System Code</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Drive System Code"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Drive System Code"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Drive System Description
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Drive System Description"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Drive System Description"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Transmission Overdrive Code
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Transmission Overdrive Code"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Transmission Overdrive Code"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Transmission Overdrive Desc
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Transmission Overdrive Desc"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Transmission Overdrive Desc"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Equivalent Test Weight (lbs.)
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Equivalent Test Weight (lbs.)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Equivalent Test Weight (lbs.)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">Axle Ratio</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Axle Ratio"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Axle Ratio"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">N/V Ratio</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["N/V Ratio"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["N/V Ratio"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">THC (g/mi)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["THC (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["THC (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">CO (g/mi)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["CO (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["CO (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">CO2 (g/mi)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["CO2 (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["CO2 (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">NOx (g/mi)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["NOx (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["NOx (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">PM (g/mi)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["PM (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["PM (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">CH4 (g/mi)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["CH4 (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["CH4 (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">N2O (g/mi)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["N2O (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["N2O (g/mi)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">RND_ADJ_FE</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["RND_ADJ_FE"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["RND_ADJ_FE"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">FE_UNIT</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["FE_UNIT"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["FE_UNIT"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">FE Bag 1</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["FE Bag 1"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["FE Bag 1"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">FE Bag 2</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["FE Bag 2"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["FE Bag 2"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">FE Bag 3</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["FE Bag 3"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["FE Bag 3"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      DT-Inertia Work Ratio Rating
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["DT-Inertia Work Ratio Rating"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["DT-Inertia Work Ratio Rating"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      DT-Absolute Speed Change Ratg
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["DT-Absolute Speed Change Ratg"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["DT-Absolute Speed Change Ratg"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      DT-Energy Economy Rating
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["DT-Energy Economy Rating"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["DT-Energy Economy Rating"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Target Coef A (lbf)
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Target Coef A (lbf)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Target Coef A (lbf)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Target Coef B (lbf/mph)
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Target Coef B (lbf/mph)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Target Coef B (lbf/mph)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Target Coef C (lbf/mph**2)
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Target Coef C (lbf/mph**2)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Target Coef C (lbf/mph**2)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">Set Coef A (lbf)</td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Set Coef A (lbf)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Set Coef A (lbf)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Set Coef B (lbf/mph)
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Set Coef B (lbf/mph)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Set Coef B (lbf/mph)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="border-bottom">
+                      Set Coef C (lbf/mph**2)
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[0]["Set Coef C (lbf/mph**2)"] }}</i
+                        ></span
+                      >
+                    </td>
+                    <td class="text-center border-bottom">
+                      <span class="icon icon-rounded icon-danger"
+                        ><i class="mdi mdi-close">
+                          {{ res[1]["Set Coef C (lbf/mph**2)"] }}</i
+                        ></span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </mat-card-content>
     </mat-card>
   </div>

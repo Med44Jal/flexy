@@ -6,7 +6,7 @@
         <div fxLayoutAlign="space-between stretch" fxLayout="column">
           <div fxLayoutAlign="space-between stretch" fxLayout="row">
             <mat-form-field fxFlex="30" appearance="outline">
-              <mat-label>Mark</mat-label>
+              <mat-label>Brand</mat-label>
               <mat-select [(ngModel)]="brand">
                 <mat-option *ngFor="let mark of cars" [value]="mark.brand">
                   {{ mark.brand }}
@@ -15,7 +15,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>Model</mat-label>
-              <mat-select [disabled]="!secondSelectOptions">
+              <mat-select [(ngModel)]="model" [disabled]="!secondSelectOptions">
                 <mat-option
                   *ngFor="let model of secondSelectOptions"
                   [value]="model.title"
@@ -26,7 +26,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>Year</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="year">
                 <mat-option *ngFor="let year of years" [value]="year">
                   {{ year }}
                 </mat-option>
@@ -36,7 +36,7 @@
           <div fxLayoutAlign="space-between stretch" fxLayout="row">
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>Mileage</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="mile">
                 <mat-option *ngFor="let mile of miles" [value]="mile">{{
                   mile
                 }}</mat-option>
@@ -44,7 +44,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>Fuel</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="fuel">
                 <mat-option *ngFor="let fuel of fuels" [value]="fuel"
                   >{{ fuel }}
                 </mat-option>
@@ -52,7 +52,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>CV</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="cv">
                 <mat-option *ngFor="let cv of cvs" [value]="cv"
                   >{{ cv }}
                 </mat-option>
@@ -62,7 +62,7 @@
           <div fxLayoutAlign="space-between stretch" fxLayout="row">
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>Gearbox</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="gear">
                 <mat-option *ngFor="let gear of gearbox" [value]="gear"
                   >{{ gear }}
                 </mat-option>
@@ -70,7 +70,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>Origin</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="origin">
                 <mat-option *ngFor="let origin of origins" [value]="origin">{{
                   origin
                 }}</mat-option>
@@ -78,7 +78,7 @@
             </mat-form-field>
             <mat-form-field fxFlex="30" appearance="outline">
               <mat-label>State</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="state">
                 <mat-option *ngFor="let state of states" [value]="state"
                   >{{ state }}
                 </mat-option>
@@ -88,7 +88,9 @@
         </div>
         <div fxLayoutAlign="space-between stretch">
           <button mat-button disabled></button>
-          <button class="btn btn-info" mat-button matStepperNext>Next</button>
+          <button class="btn btn-success" mat-button matStepperNext>
+            Next
+          </button>
         </div>
       </mat-step>
       <!-- #enddocregion label -->
@@ -105,10 +107,15 @@
           </mat-chip-list>
         </div>
         <div fxLayoutAlign="space-between stretch">
-          <button class="btn btn-info" mat-button matStepperPrevious>
+          <button class="btn btn-success" mat-button matStepperPrevious>
             Back
           </button>
-          <button class="btn btn-info" mat-button matStepperNext>Next</button>
+          <button (click)="constructSell()" class="btn btn-success" mat-button>
+            Sell
+          </button>
+          <button class="btn btn-success" mat-button matStepperNext>
+            Next
+          </button>
         </div>
       </mat-step>
       <mat-step label="Step 3">

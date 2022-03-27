@@ -4,7 +4,7 @@
       <div fxLayoutAlign="space-between stretch" fxLayout="column">
         <div fxLayoutAlign="space-between stretch" fxLayout="row">
           <mat-form-field fxFlex="25" appearance="outline">
-            <mat-label>Mark</mat-label>
+            <mat-label>Brand</mat-label>
             <mat-select [(ngModel)]="brand">
               <mat-option *ngFor="let mark of cars" [value]="mark.brand">
                 {{ mark.brand }}
@@ -13,7 +13,7 @@
           </mat-form-field>
           <mat-form-field fxFlex="25" appearance="outline">
             <mat-label>Model</mat-label>
-            <mat-select [disabled]="!secondSelectOptions">
+            <mat-select [(ngModel)]="model" [disabled]="!secondSelectOptions">
               <mat-option
                 *ngFor="let model of secondSelectOptions"
                 [value]="model.title"
@@ -33,7 +33,7 @@
         <div fxLayoutAlign="space-between stretch" fxLayout="row">
           <mat-form-field fxFlex="25" appearance="outline">
             <mat-label>Gearbox</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="gear">
               <mat-option *ngFor="let gear of gearbox" [value]="gear"
                 >{{ gear }}
               </mat-option>
@@ -41,7 +41,7 @@
           </mat-form-field>
           <mat-form-field fxFlex="25" appearance="outline">
             <mat-label>Fuel</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="fuel">
               <mat-option *ngFor="let fuel of fuels" [value]="fuel"
                 >{{ fuel }}
               </mat-option>
@@ -59,7 +59,7 @@
         <div fxLayoutAlign="space-between stretch" fxLayout="row">
           <mat-form-field fxFlex="25" appearance="outline">
             <mat-label>CV</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="cv">
               <mat-option *ngFor="let cv of cvs" [value]="cv"
                 >{{ cv }}
               </mat-option>
@@ -67,7 +67,7 @@
           </mat-form-field>
           <mat-form-field fxFlex="25" appearance="outline">
             <mat-label>Ville</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="ville">
               <mat-option *ngFor="let ville of villes" [value]="ville.ville">{{
                 ville.ville
               }}</mat-option>
@@ -100,7 +100,11 @@
               <ngb-carousel *ngIf="images">
                 <ng-template ngbSlide>
                   <div class="wrapper">
-                    <img [src]="images[0]" alt="Random first slide" />
+                    <img
+                      class="card-img-top"
+                      [src]="images[0]"
+                      alt="Random first slide"
+                    />
                   </div>
                   <div class="carousel-caption">
                     <h3>First Slide</h3>
@@ -109,7 +113,11 @@
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="wrapper">
-                    <img [src]="images[1]" alt="Random second slide" />
+                    <img
+                      class="card-img-top"
+                      [src]="images[1]"
+                      alt="Random second slide"
+                    />
                   </div>
                   <div class="carousel-caption">
                     <h3>Second Slide</h3>
@@ -118,7 +126,11 @@
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="wrapper">
-                    <img [src]="images[2]" alt="Random third slide" />
+                    <img
+                      class="card-img-top"
+                      [src]="images[2]"
+                      alt="Random third slide"
+                    />
                   </div>
                   <div class="carousel-caption">
                     <h3>Third Slide</h3>
@@ -154,6 +166,15 @@
                 </div>
                 <div class="p-2 bd-highlight">14:25</div>
               </div>
+              <button
+                [routerLink]="['/compare']"
+                routerLinkActive="router-link-active"
+                mat-button
+                style="width: 100%"
+                class="btn btn-success"
+              >
+                View
+              </button>
             </div>
           </div>
         </div>

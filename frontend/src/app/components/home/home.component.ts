@@ -27,6 +27,12 @@ export class HomeComponent implements OnInit {
   cars = cars;
   villes = villes;
 
+  model;
+  gear;
+  fuel;
+  cv;
+  ville;
+
   minPrice: number = 100000;
   maxPrice: number = 200000;
   optionsPrice: Options = {

@@ -33,6 +33,7 @@ import { HeaderComponent } from '../layouts/header/header.component';
 import { CompareComponent } from './compare/compare.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -72,7 +73,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     NgxPaginationModule,
     AutocompleteLibModule,
     NgxSliderModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    AppRoutingModule,
   ],
   exports: [
     AlertsComponent,
